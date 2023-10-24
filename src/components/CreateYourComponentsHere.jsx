@@ -1,11 +1,29 @@
-import React from "react";
+
+
+import { useTaskStore } from "../stores/useTaskStore";
 
 export const CreateYourComponentsHere = () => {
+    const {
+        tasks, 
+        addTask,
+    } = useTaskStore()
   return (
     <div>
-      This is just a component to upload to github to include the components
-      folder since if no file is stored in the folder, the github repo won't
-      upload it.
+      <p>Tasks:</p>
+        <ul>
+          {tasks.map((task, index) => (
+            <li key={index}>{task}</li>
+          ))}
+        </ul>
+        <input
+          placeholder="Add a task"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              addTask(e.target.value);
+              e.target.value = "";
+            }
+          }}
+          />
     </div>
   );
 };

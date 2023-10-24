@@ -1,3 +1,14 @@
+import { CreateYourComponentsHere } from "./components/CreateYourComponentsHere";
+import { LightDarkProvider } from "./themes/LightTheme"
+import { ToggleButton } from "./components/ToggleButton";
+
 export const App = () => {
-  return <div className="App">Hello Coders!</div>;
+  return (
+    <>
+  <CreateYourComponentsHere />
+  <LightDarkProvider> 
+      <ToggleButton />
+  </LightDarkProvider>
+  </>
+  )
 };
